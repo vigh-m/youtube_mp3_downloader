@@ -17,11 +17,11 @@ browser = Firefox(options=opts)
 
 search_term = raw_input("Enter the video to search for:\n")
 
-print(search_term)
+#print(search_term)
 
 search_term.replace(' ', '+')
 
-print(search_term)
+#print(search_term)
 
 print('Searched for the requested name')
 browser.get('https://www.youtube.com/results?search_query='+search_term)
@@ -47,12 +47,10 @@ if isinstance(vid_number, int) != True:
 	print("Incorrect Input")
 	print(type(vid_number))
 	browser.close()
-	quit()
 
 if vid_number > len(results) or vid_number < 1:
 	print("Number out of range")
 	browser.close()
-	quit()
 
 dl_element = browser.find_element_by_link_text(results[vid_number - 1].text)
 
@@ -66,4 +64,3 @@ print('Video Link = {}'.format(vid_link))
 dlHandler.download(vid_link)
 
 browser.close()
-quit()
